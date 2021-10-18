@@ -1,0 +1,19 @@
+#!/bin/sh
+
+paru -S --needed --noconfirm \
+    git \
+    just \
+    keychain \
+    man-db \
+    openssh \
+    ripgrep \
+    unzip \
+    tree \
+    wget \
+    xclip \
+    zip
+
+mkdir -p /home/$(whoami)/.config
+
+ln -sf $(git rev-parse --show-toplevel)/.gitconfig $HOME/.gitconfig
+ln -sf $(git rev-parse --show-toplevel)/.gitignore $HOME/.gitignore

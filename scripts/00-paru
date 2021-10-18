@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# Required packages
+sudo pacman -S --needed base-devel
+
+# Paru install
+git clone https://aur.archlinux.org/paru.git
+cd paru
+makepkg -si
+
+# Clean
+cd ..
+rm -rf paru

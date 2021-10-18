@@ -1,0 +1,34 @@
+#!/bin/sh
+
+paru -S --needed --noconfirm \
+    arandr \
+    autorandr \
+    bspwm \
+    feh \
+    i3lock-color \
+    intel-media-driver \
+    picom \
+    polybar \
+    rofi \
+    sxhkd \
+    vulkan-intel \
+    xf86-video-intel \
+    xorg-server \
+    xorg-xinit \
+    xorg-xrandr \
+    xorg-xsetroot \
+
+#    clipit \
+#    thunar \
+#    meld \
+#    xss-lock \
+#    network-manager-applet \
+#    flameshot \
+
+ln -sf $(git rev-parse --show-toplevel)/.config/autorandr $HOME/.config
+ln -sf $(git rev-parse --show-toplevel)/.screenlayout $HOME
+ln -sf $(git rev-parse --show-toplevel)/.config/bspwm $HOME/.config
+ln -sf $(git rev-parse --show-toplevel)/.config/sxhkd $HOME/.config
+ln -sf $(git rev-parse --show-toplevel)/.config/polybar $HOME/.config
+ln -sf $(git rev-parse --show-toplevel)/.xinitrc $HOME/.xinitrc
+ln -sf $(git rev-parse --show-toplevel)/.xprofile $HOME/.xprofile

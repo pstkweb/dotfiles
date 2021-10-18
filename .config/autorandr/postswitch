@@ -1,0 +1,35 @@
+#!/bin/bash
+
+DISPLAYS=$(xrandr -q | grep -w connected | sed 's/connected //gm;s/primary //gm' | awk -F'[ +]' '{ print $1 " " $2 " " $3 " " $4 }' | sort -b -k4,4 -k3,3 | cut -d " " -f 1-2)
+DISPLAY_NAMES=($(echo "${DISPLAYS}" | cut -d " " -f 1 | tr "\n" " "))
+DISPLAY_RES=($(echo "${DISPLAYS}" | cut -d " " -f 2 | tr "\n" " "))
+DISPLAY_COUNT=${#DISPLAY_NAMES[*]}
+
+# Move desktops
+DESKTOPS=(I II III IV V VI VII VIII IX X)
+
+if [[ $DISPLAY_COUNT -eq 1 ]]; then
+    bspc monitor ${DISPLAY_NAMES[0]} -d "${DESKTOPS[@]}"
+else
+    bspc monitor ${DISPLAY_NAMES[0]} -d "${DESKTOPS[@]:0:5}"
+    bspc monitor ${DISPLAY_NAMES[1]} -d "${DESKTOPS[@]:5:5}"
+fi
+
+# Reload polybar
+killall -q polybar
+while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
+
+if [[ $DISPLAY_COUNT -eq 1 ]]; then
+    polybar -q main -c "$HOME"/.config/polybar/config.ini &
+else
+    MONITOR_LEFT="${DISPLAY_NAMES[0]}" polybar -q left -c "$HOME"/.config/polybar/config.ini &
+    MONITOR_RIGHT="${DISPLAY_NAMES[1]}" polybar -q right -c "$HOME"/.config/polybar/config.ini &
+fi
+
+# Set backgrounds
+WALLPAPERS=()
+for index in ${!DISPLAY_RES[*]}
+do
+    WALLPAPERS+=("--bg-fill $(ls $HOME/home/images/wp-${DISPLAY_RES[$index]}.*| head -n 1)")
+done
+feh ${WALLPAPERS[@]}

@@ -1,0 +1,23 @@
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[color "status"]
+	changed = yellow
+[user]
+	name = Thomas Triboult
+	email = thomas.triboult@knplabs.com
+[alias]
+	ci = commit
+	co = checkout
+	st = status
+	br = branch
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s%Cgreen(%cr) %C(bold blue)<%an>%Creset'--abbrev-commit --date-relative
+[core]
+	editor = nvim
+[push]
+	default = current
+[pull]
+	default = current
+[init]
+	defaultBranch = main

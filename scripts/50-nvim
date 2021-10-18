@@ -1,0 +1,5 @@
+#!/bin/sh
+
+paru -S --needed --noconfirm neovim
+
+ln -sf $(git rev-parse --show-toplevel)/.config/nvim $HOME/.config

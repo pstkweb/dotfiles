@@ -1,0 +1,5 @@
+#!/bin/sh
+
+paru -S --needed --noconfirm kitty
+
+ln -sf $(git rev-parse --show-toplevel)/.config/kitty $HOME/.config

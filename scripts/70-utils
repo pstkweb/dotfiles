@@ -1,0 +1,5 @@
+#!/bin/sh
+
+paru -S --noconfirm --needed \
+  enpass-bin \
+  networkmanager

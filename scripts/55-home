@@ -1,0 +1,6 @@
+#!/bin/sh
+
+cd $HOME
+mkdir home
+
+cp -r $(git rev-parse --show-toplevel)/home/* $HOME/home
