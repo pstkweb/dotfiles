@@ -1,0 +1,5 @@
+#!/bin/bash
+
+pacman -Syu sudo make
+
+echo "$USER ALL=(ALL) ALL" >> /etc/sudoers
