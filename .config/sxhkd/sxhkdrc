@@ -2,6 +2,9 @@
 # wm independent hotkeys
 #
 
+super + shift + f
+ flameshot gui
+
 # terminal emulator
 super + Return
 	kitty

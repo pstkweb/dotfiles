@@ -4,27 +4,28 @@ paru -S --needed --noconfirm \
     arandr \
     autorandr \
     bspwm \
+    clipit \
     dunst \
     feh \
+    flameshot \
     i3lock-color \
     intel-media-driver \
     picom \
     polybar \
     rofi \
     sxhkd \
+    thunar \
+    thunar-archive-plugin \
+    thunar-volman \
     vulkan-intel \
     xf86-video-intel \
     xorg-server \
     xorg-xinit \
     xorg-xrandr \
-    xorg-xsetroot \
-
-#    clipit \
-#    thunar \
+    xorg-xsetroot
 #    meld \
 #    xss-lock \
 #    network-manager-applet \
-#    flameshot \
 
 ln -sf $(git rev-parse --show-toplevel)/.config/autorandr $HOME/.config
 ln -sf $(git rev-parse --show-toplevel)/.config/dunst $HOME/.config

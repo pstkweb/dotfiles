@@ -28,3 +28,4 @@ bspc config gapless_monocle      true
 
 # GUI tools
 dunst &
+clipit &
