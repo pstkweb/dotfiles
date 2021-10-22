@@ -10,6 +10,7 @@ paru -S --needed --noconfirm \
     flameshot \
     i3lock-color \
     intel-media-driver \
+    noto-fonts-emoji \
     picom \
     polybar \
     rofi \
