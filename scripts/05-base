@@ -1,6 +1,7 @@
 #!/bin/sh
 
 paru -S --needed --noconfirm \
+    bat \
     git \
     just \
     keychain \
