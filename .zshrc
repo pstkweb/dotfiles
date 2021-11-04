@@ -3,8 +3,19 @@ HISTSIZE=1000
 SAVEHIST=1000
 
 unsetopt beep
+setopt correct
+setopt globdots
 
 bindkey -e
+
+bindkey "\e[5C" emacs-forward-word
+bindkey "\e[5D" emacs-backward-word
+bindkey "\e\e[C" emacs-forward-word
+bindkey "\e\e[D" emacs-backward-word
+bindkey "\e[1;5C" emacs-forward-word
+bindkey "\e[1;5D" emacs-backward-word
+
+set -o emacs
 
 # Aliases
 alias dc='docker-compose'
