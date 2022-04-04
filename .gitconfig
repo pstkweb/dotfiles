@@ -6,7 +6,7 @@
 	changed = yellow
 [user]
 	name = Thomas Triboult
-	email = thomas.triboult@knplabs.com
+	email = thomas.triboult@eldo.com
 [alias]
 	ci = commit
 	co = checkout
