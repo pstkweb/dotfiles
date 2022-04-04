@@ -3,6 +3,7 @@
 paru -S --needed --noconfirm zsh zplug
 
 ln -sf $(git rev-parse --show-toplevel)/.zshrc $HOME/.zshrc
+ln -sf $(git rev-parse --show-toplevel)/.zshenv $HOME/.zshenv
 ln -sf $(git rev-parse --show-toplevel)/.p10k.zsh $HOME/.p10k.zsh
 
 zsh -c 'source ~/.zshrc && zplug install'
