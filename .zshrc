@@ -20,7 +20,8 @@ set -o emacs
 # Aliases
 alias dc='docker-compose'
 alias j='just'
-alias t='tmux'
+alias t='tmux -u'
+alias tmux='tmux -u'
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
