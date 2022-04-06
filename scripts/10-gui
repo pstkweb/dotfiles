@@ -8,6 +8,7 @@ paru -S --needed --noconfirm \
     dunst \
     feh \
     flameshot \
+    gvfs \
     i3lock-color \
     intel-media-driver \
     noto-fonts-emoji \
@@ -18,15 +19,14 @@ paru -S --needed --noconfirm \
     thunar \
     thunar-archive-plugin \
     thunar-volman \
+    ttf-fantasque-sans-mono \
+    ttf-iosevka-nerd \
     vulkan-intel \
     xf86-video-intel \
     xorg-server \
     xorg-xinit \
     xorg-xrandr \
     xorg-xsetroot
-#    meld \
-#    xss-lock \
-#    network-manager-applet \
 
 ln -sf $(git rev-parse --show-toplevel)/.config/autorandr $HOME/.config
 ln -sf $(git rev-parse --show-toplevel)/.config/dunst $HOME/.config
