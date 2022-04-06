@@ -25,7 +25,17 @@ for _, name in pairs(required_servers) do
 end
 
 lsp_installer.on_server_ready(function(server)
-  server:setup({})
+  local opts = {}
+
+  if server.name == 'sumneko_lua' then
+    opts.settings = {
+      Lua = {
+        diagnostics = { globals = { 'vim' } }
+      }
+    }
+  end
+
+  server:setup(opts)
 end)
 
 local nvim_lsp = require'lspconfig'

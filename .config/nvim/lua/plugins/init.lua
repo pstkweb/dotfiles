@@ -37,8 +37,8 @@ return require('packer').startup(function(use)
 
   -- Autocomplete & Syntax ------------------------------------
   use {
-    'hrsh7th/nvim-compe',
-    config = function() require'plugins.config.nvim-compe' end,
+    'hrsh7th/nvim-cmp',
+    config = function() require'plugins.config.nvim-cmp' end,
     event = 'InsertEnter'
   } -- Completion
 
@@ -62,8 +62,8 @@ return require('packer').startup(function(use)
     config = function() require'plugins.config.nvim-bufferline' end
   }
   use {
-  'glepnir/galaxyline.nvim',
-     branch = 'main',
+  'dsych/galaxyline.nvim',
+     branch = 'bugfix/diagnostics',
      requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
   use 'Avimitin/nerd-galaxyline'
