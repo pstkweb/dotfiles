@@ -20,7 +20,7 @@ return require('packer').startup(function(use)
     requires = {'neovim/nvim-lspconfig'}
   }
   use {
-    'glepnir/lspsaga.nvim',
+    'tami5/lspsaga.nvim',
     config = function() require'plugins.config.lspsaga' end,
     event = 'BufRead'
   }
