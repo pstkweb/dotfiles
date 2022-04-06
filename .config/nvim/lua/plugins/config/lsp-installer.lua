@@ -1,37 +1,37 @@
-require'lspinstall'.setup()
-
-local installed_servers = require'lspinstall'.installed_servers()
-local nvim_lsp = require'lspconfig'
-
-for _, server in pairs(installed_servers) do
-  nvim_lsp[server].setup{}
-end
+local lsp_installer = require'nvim-lsp-installer'
 
 local required_servers = {
-  "bash",
-  "css",
-  "dockerfile",
+  "bashls",
+  "cssls",
+  "dockerls",
   "graphql",
   "html",
-  "java",
-  "json",
-  "lua",
-  "php",
-  "python",
-  "rust",
+  "jsonls",
+  "sumneko_lua",
+  "phpactor",
   "svelte",
-  "typescript",
-  "vue",
-  "yaml"
+  "tsserver",
+  "volar",
+  "yamlls"
 }
 
-for _, server in pairs(required_servers) do
-  if not vim.tbl_contains(installed_servers, server) then
-    require'lspinstall'.install_server(server)
+for _, name in pairs(required_servers) do
+  local server_found, server = lsp_installer.get_server(name)
+
+  if server_found and not server:is_installed() then
+    print("Installing " .. name)
+    server:install()
   end
 end
 
+lsp_installer.on_server_ready(function(server)
+  server:setup({})
+end)
+
+local nvim_lsp = require'lspconfig'
+--[[
 nvim_lsp.phpactor.setup{}
+]]--
 
 local on_attach = function(client)
   if client.resolved_capabilities.document_formatting then
