@@ -13,6 +13,11 @@ if [[ $DISPLAY_COUNT -eq 1 ]]; then
 else
     bspc monitor ${DISPLAY_NAMES[0]} -d "${DESKTOPS[@]:0:5}"
     bspc monitor ${DISPLAY_NAMES[1]} -d "${DESKTOPS[@]:5:5}"
+
+    bspc config -m ${DISPLAY_NAMES[0]} right_padding 0
+    bspc config -m ${DISPLAY_NAMES[0]} bottom_padding 0
+    bspc config -m ${DISPLAY_NAMES[1]} right_padding 0
+    bspc config -m ${DISPLAY_NAMES[1]} bottom_padding 0
 fi
 
 # Reload polybar
