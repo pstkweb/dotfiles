@@ -6,6 +6,7 @@ local required_servers = {
   "dockerls",
   "graphql",
   "html",
+  "jedi_language_server",
   "jsonls",
   "sumneko_lua",
   "phpactor",
