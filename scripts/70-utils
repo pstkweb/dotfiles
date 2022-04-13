@@ -3,3 +3,7 @@
 paru -S --noconfirm --needed \
   enpass-bin \
   networkmanager
+
+# Install nm scripts
+sudo cp -r $(git rev-parse --show-toplevel)/scripts/networkmanager-scripts/* /etc/NetworkManager/dispatcher.d
+sudo chmod a+rx /etc/NetworkManager/dispatcher.d/*
