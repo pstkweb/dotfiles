@@ -23,8 +23,8 @@ require'cmp'.setup {
     ultisnips = true;
     luasnip = true;
   },
-  window: {
-    navigation: "native";
+  window = {
+    navigation = "native";
   }
 }
 
