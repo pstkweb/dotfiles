@@ -8,7 +8,6 @@ vim.g.nvim_tree_show_icons = {
 -- vim.g.nvim_tree_follow = 1
 
 require'nvim-tree'.setup {
-  auto_close = false,
   disable_netrw = true,
   diagnostics = {
     enable = true,
@@ -28,7 +27,7 @@ require'nvim-tree'.setup {
   update_focused_file = {
     update_cwd = true,
   },
-  update_to_buf_dir = {
+  hijack_directories = {
     auto_open = false,
   }
 }
