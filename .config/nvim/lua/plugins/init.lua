@@ -20,13 +20,13 @@ return require('packer').startup(function(use)
     requires = {'neovim/nvim-lspconfig'}
   }
   use {
-    'tami5/lspsaga.nvim',
-    config = function() require'plugins.config.lspsaga' end,
-    event = 'BufRead'
+    'RishabhRD/nvim-lsputils',
+    config = function() require'plugins.config.lsputils' end,
+    requires = {'RishabhRD/popfix'}
   }
   use {
     'onsails/lspkind-nvim',
-    config = function() require'plugins.config.lspkind' end
+    config = function() require'plugins.config.lsp-kind' end
   }
   use {'folke/lsp-colors.nvim', event = 'BufRead'} -- Add missing colors to LSP
   use {
@@ -39,7 +39,16 @@ return require('packer').startup(function(use)
   use {
     'hrsh7th/nvim-cmp',
     config = function() require'plugins.config.nvim-cmp' end,
-    event = 'InsertEnter'
+    event = 'InsertEnter',
+    requires = {
+      { 'hrsh7th/cmp-buffer', module = "cmp_buffer" },
+      { 'hrsh7th/cmp-nvim-lua', module = "cmp_nvim_lua" },
+      { 'hrsh7th/cmp-nvim-lsp', module = "cmp_nvim_lsp" },
+      { 'hrsh7th/cmp-path', module = "cmp_path" },
+      { "hrsh7th/cmp-calc", module = "cmp_calc" },
+      { "hrsh7th/cmp-emoji", module = "cmp_emoji" },
+      { 'hrsh7th/cmp-vsnip', module = "cmp_vsnip" },
+    },
   } -- Completion
 
   use {
@@ -54,7 +63,7 @@ return require('packer').startup(function(use)
   use 'kyazdani42/nvim-web-devicons'
   use {
     'kyazdani42/nvim-tree.lua',
-    config = function() require'plugins.config.nvim-tree' end
+    config = function() require'plugins.config.nvimtree' end
   } -- File browser
   use {
     'akinsho/nvim-bufferline.lua',
@@ -100,18 +109,18 @@ return require('packer').startup(function(use)
 
   use {"rafamadriz/friendly-snippets", event = "InsertEnter"} -- Preconfigured snippets
 
-  use {'windwp/nvim-autopairs', config = function() require'plugins.config.nvim-autopairs' end}
+  use {'windwp/nvim-autopairs', config = function() require'plugins.config.nvimautopairs' end}
 
   -- Debug ----------------------------------------------------
   use {
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
     cmd = 'TroubleToggle',
-    config = function() require'plugins.config.trouble' end
+    config = function() require'plugins.config.folke-trouble' end
   }
   use {
     'windwp/nvim-spectre',
-    config = function() require'plugins.config.spectre' end,
+    config = function() require'plugins.config.nvim-spectre' end,
     requires = {{'nvim-lua/popup.nvim'}},
     event = "BufRead",
   } -- Search and replace
@@ -125,4 +134,5 @@ return require('packer').startup(function(use)
   use 'qpkorr/vim-bufkill'
   use 'austintaylor/vim-commaobject'
   use 'tpope/vim-surround'
-end)
+end
+)

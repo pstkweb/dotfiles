@@ -1,15 +1,27 @@
 local lsp_installer = require'nvim-lsp-installer'
+local nvim_lsp = require'lspconfig'
+
+lsp_installer.setup({
+  ui = {
+    icons = {
+      server_installed = "✓",
+      server_pending = "➜",
+      server_uninstalled = "✗"
+    }
+  }
+})
 
 local required_servers = {
   "bashls",
   "cssls",
+  "diagnosticls",
   "dockerls",
   "graphql",
   "html",
   "jedi_language_server",
   "jsonls",
-  "sumneko_lua",
   "phpactor",
+  "sumneko_lua",
   "svelte",
   "tsserver",
   "volar",
@@ -25,36 +37,81 @@ for _, name in pairs(required_servers) do
   end
 end
 
-lsp_installer.on_server_ready(function(server)
-  local opts = {}
-
-  if server.name == 'sumneko_lua' then
-    opts.settings = {
-      Lua = {
-        diagnostics = { globals = { 'vim' } }
-      }
-    }
-  end
-
-  server:setup(opts)
-end)
-
-local nvim_lsp = require'lspconfig'
---[[
-nvim_lsp.phpactor.setup{}
-]]--
-
-local on_attach = function(client)
-  if client.resolved_capabilities.document_formatting then
-    vim.api.nvim_command [[augroup Format]]
-    vim.api.nvim_command [[autocmd! * <buffer>]]
-    vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
-    vim.api.nvim_command [[augroup END]]
-  end
+local on_attach = function ()
+  vim.api.nvim_set_keymap('n', 'gD', [[<Cmd> lua vim.lsp.buf.declaration()<CR>]], { noremap = true, silent = true })
+  vim.api.nvim_set_keymap('n', 'gd', [[<Cmd> lua vim.lsp.buf.definition()<CR>]], { noremap = true, silent = true })
+  vim.api.nvim_set_keymap('n', 'gs', [[<Cmd> lua vim.lsp.buf.signature_help()<CR>]], { noremap = true, silent = true })
+  vim.api.nvim_set_keymap('n', 'K', [[<Cmd> lua vim.lsp.buf.hover()<CR>]], { noremap = true, silent = true })
+  vim.api.nvim_set_keymap('n', 'gr', [[<Cmd> lua vim.lsp.buf.references()<CR>]], { noremap = true, silent = true })
+  vim.api.nvim_set_keymap('n', '<Leader>ca', [[<Cmd> lua vim.lsp.buf.code_action()<CR>]], { noremap = true, silent = true })
 end
 
-nvim_lsp.diagnosticls.setup {
+nvim_lsp.bashls.setup{
+  on_attach = on_attach
+}
+
+nvim_lsp.cssls.setup{
+  on_attach = on_attach
+}
+
+nvim_lsp.dockerls.setup{
+  on_attach = on_attach
+}
+
+nvim_lsp.graphql.setup{
+  on_attach = on_attach
+}
+
+nvim_lsp.html.setup{
+  on_attach = on_attach
+}
+
+nvim_lsp.jedi_language_server.setup{
+  on_attach = on_attach
+}
+
+nvim_lsp.jsonls.setup{
+  on_attach = on_attach
+}
+
+nvim_lsp.phpactor.setup{
+  on_attach = on_attach
+}
+
+nvim_lsp.sumneko_lua.setup{
   on_attach = on_attach,
+  settings = {
+    Lua = {
+      diagnostics = { globals = { 'vim' } }
+    }
+  }
+}
+
+nvim_lsp.svelte.setup{
+  on_attach = on_attach
+}
+
+nvim_lsp.tsserver.setup{
+  on_attach = on_attach
+}
+
+nvim_lsp.volar.setup{
+  on_attach = on_attach
+}
+
+nvim_lsp.yamlls.setup{
+  on_attach = on_attach
+}
+
+nvim_lsp.diagnosticls.setup {
+  on_attach = function(client)
+    if client.resolved_capabilities.document_formatting then
+      vim.api.nvim_command [[augroup Format]]
+      vim.api.nvim_command [[autocmd! * <buffer>]]
+      vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
+      vim.api.nvim_command [[augroup END]]
+    end
+  end,
   filetypes = { 'javascript', 'javascriptreact', 'json', 'typescript', 'typescriptreact', 'css', 'less', 'scss', 'markdown', 'pandoc' },
   init_options = {
     linters = {
