@@ -1,5 +1,6 @@
 #! /bin/sh
 
+lxpolkit &
 sxhkd -m 1 &
 autorandr --change --force &
 picom &

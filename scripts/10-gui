@@ -11,6 +11,7 @@ paru -S --needed --noconfirm \
     gvfs \
     i3lock-color \
     intel-media-driver \
+    lxsession \
     noto-fonts-emoji \
     picom \
     polybar \
