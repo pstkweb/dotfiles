@@ -14,6 +14,7 @@ bindkey "\e\e[C" emacs-forward-word
 bindkey "\e\e[D" emacs-backward-word
 bindkey "\e[1;5C" emacs-forward-word
 bindkey "\e[1;5D" emacs-backward-word
+bindkey "^[[3~" delete-char
 
 set -o emacs
 
