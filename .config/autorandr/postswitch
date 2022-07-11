@@ -35,6 +35,6 @@ fi
 WALLPAPERS=()
 for index in ${!DISPLAY_RES[*]}
 do
-    WALLPAPERS+=("--bg-fill $(ls $HOME/home/images/wp-${DISPLAY_RES[$index]}.*| head -n 1)")
+    WALLPAPERS+=("--bg-fill $(ls $HOME/images/wp-${DISPLAY_RES[$index]}.*| head -n 1)")
 done
 feh ${WALLPAPERS[@]}
