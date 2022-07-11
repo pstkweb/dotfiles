@@ -7,7 +7,9 @@ require('gitsigns').setup{
     changedelete = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
   },
   current_line_blame = false,
-  current_line_blame_delay = 100,
+  current_line_blame_opts = {
+    delay = 100,
+  },
 }
 
 vim.cmd[[highlight GitSignsCurrentLineBlame guifg=gray]]
