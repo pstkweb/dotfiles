@@ -59,6 +59,10 @@ nvim_lsp.dockerls.setup{
   on_attach = on_attach
 }
 
+nvim_lsp.eslint.setup{
+  on_attach = on_attach
+}
+
 nvim_lsp.graphql.setup{
   on_attach = on_attach
 }
