@@ -16,6 +16,7 @@ local required_servers = {
   "cssls",
   "diagnosticls",
   "dockerls",
+  "eslint",
   "graphql",
   "html",
   "jedi_language_server",

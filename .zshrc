@@ -40,3 +40,7 @@ zplug load
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 eval $(keychain --eval --quiet $HOME/.ssh/id_ed25519)
+
+source /usr/share/nvm/init-nvm.sh
+
+export PATH=~/.yarn/bin:$PATH
