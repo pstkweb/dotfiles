@@ -32,9 +32,12 @@ else
 fi
 
 # Set backgrounds
+DISPLAYS_ORDER=($(xrandr --listactivemonitors | grep -v Monitors | cut -d " " -f 6 | tr "\n" " "))
 WALLPAPERS=()
-for index in ${!DISPLAY_RES[*]}
+for display in ${DISPLAYS_ORDER[@]}
 do
+    index=$(echo ${DISPLAY_NAMES[@]/$display//} | cut -d/ -f1 | wc -w | tr -d ' ')
     WALLPAPERS+=("--bg-fill $(ls $HOME/images/wp-${DISPLAY_RES[$index]}.*| head -n 1)")
 done
+
 feh ${WALLPAPERS[@]}
