@@ -1,11 +1,8 @@
 #!/bin/sh
 
-paru -S --needed --noconfirm zsh zplug
-
 ln -sf $(git rev-parse --show-toplevel)/.zshrc $HOME/.zshrc
 ln -sf $(git rev-parse --show-toplevel)/.zshenv $HOME/.zshenv
 ln -sf $(git rev-parse --show-toplevel)/.p10k.zsh $HOME/.p10k.zsh
+ln -sf $(git rev-parse --show-toplevel)/.p10k-ascii-8color.zsh $HOME/.p10k-ascii-8color.zsh
 
-zsh -c 'source ~/.zshrc && zplug install'
-
-chsh -s /usr/bin/zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/romkatv/zsh4humans/v5/install)"

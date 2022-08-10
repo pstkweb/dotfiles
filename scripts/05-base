@@ -3,6 +3,7 @@
 paru -S --needed --noconfirm \
     bat \
     git \
+    fzf \
     just \
     keychain \
     man-pages \
