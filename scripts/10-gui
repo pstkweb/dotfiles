@@ -16,6 +16,7 @@ paru -S --needed --noconfirm \
     picom \
     polybar \
     rofi \
+    rofi-calc \
     sxhkd \
     thunar \
     thunar-archive-plugin \
