@@ -89,6 +89,9 @@ alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
 
+export PATH=/home/thomas/.yarn/bin:$PATH
+export XDEBUG_MODE=off
+
 # Add flags to existing aliases.
 alias ls="${aliases[ls]:-ls} -A"
 

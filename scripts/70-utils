@@ -1,8 +1,9 @@
 #!/bin/sh
 
 paru -S --noconfirm --needed \
-  enpass-bin \
-  networkmanager
+	enpass-bin \
+	networkmanager \
+	networkmanager-openvpn
 
 # Install nm scripts
 sudo cp -r $(git rev-parse --show-toplevel)/networkmanager-scripts/* /etc/NetworkManager/dispatcher.d
