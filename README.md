@@ -1,6 +1,6 @@
 # Dotfiles
 
-These are my dotfiles, used to configure a fresh Arch distribution.
+These are my dotfiles, used to configure a fresh Arch distribution with KDE.
 
 ## Installation
 Simply run : `make`
@@ -8,19 +8,13 @@ Simply run : `make`
 ## Packages
 * autorandr
 * brave
-* bspwm
 * docker
-* dunst
-* feh
-* firefox-developer-edition
+* brave
 * fzf
-* i3lock-color
 * kitty
-* neovim
+* vscode
 * paru
 * refind
 * rg
-* rofi
-* sxkd
 * tmux
 * zsh
