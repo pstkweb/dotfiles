@@ -1,5 +1,5 @@
 #!/bin/sh
 
-paru -S --noconfirm --needed otf-nerd-fonts-fira-code
+paru -S --noconfirm --needed otf-firamono-nerd ttf-firacode-nerd
 
 fc-cache
